@@ -29,13 +29,16 @@ class ViewController: UIViewController {
         
         let messages = ["You Are Awesome!",
                         "You Are Amazing",
-                        "You Are Incredible!"]
+                        "You Are Incredible!",
+                        "You have the design skill of Jony Ive",
+                        "When the genius bar needs help, they call you!"]
         
-        messageLabel.text = messages[messageNumber]
-        messageNumber+=1
-        if messageNumber == messages.count{
-            messageNumber = 0
-        }
+        messageLabel.text = messages[Int.random(in: 0...messages.count-1)]
+//        messageLabel.text = messages[messageNumber]
+//        messageNumber+=1
+//        if messageNumber == messages.count{
+//            messageNumber = 0
+//        }
         
 //        let imageName="image" + String(imageNumber)
         let imageName="image\(imageNumber)"
