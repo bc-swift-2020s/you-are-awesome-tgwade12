@@ -26,6 +26,20 @@ class ViewController: UIViewController {
         messageLabel.text = ""
         
     }
+    func playSound(){
+        if let sound = NSDataAsset(name: "sound0"){
+            do {
+                try audioPlayer = AVAudioPlayer(data: sound.data)
+                audioPlayer.play()
+            } catch {
+                print("\(error.localizedDescription)")
+                
+            }
+        } else {
+            print("There was an error")
+        }
+        
+    }
     
     @IBAction func messageButtonPressed(_ sender: UIButton) {
         
@@ -54,19 +68,10 @@ class ViewController: UIViewController {
         imageNumber = newImageNumber
         imageView.image = UIImage(named: "image\(imageNumber)")
         
-        if let sound = NSDataAsset(name: "sound0"){
-            do {
-                try audioPlayer = AVAudioPlayer(data: sound.data)
-                audioPlayer.play()
-            } catch {
-                print("\(error.localizedDescription)")
-                
-            }
-        } else {
-            print("There was an error")
-        }
+        playSound()
         
-
+        
+        
     }
     
 }
